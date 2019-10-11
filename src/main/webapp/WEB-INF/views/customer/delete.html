@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote customer</title>
+</head>
+<body>
+<h1>Remote customer</h1>
+<p>
+    <a href="/customers">Back customer list</a>
+</p>
+<form th:object="${customer}" th:action="@{/delete-customer}" method="post">
+<input type="hidden" th:field="*{id}" name="id">
+    <table>
+        <tr>
+            <td>First name:</td>
+            <td th:text="${customer.firstName}" ></td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td th:text="${customer.lastName}" ></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Delete customer"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
